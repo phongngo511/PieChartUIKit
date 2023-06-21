@@ -4,12 +4,13 @@ PieChartUIKit is a simple solution writen purely in Swift allowing to draw color
 
 ## Frameworks
 
-CoreAnimation, CoreGraphics
+CoreGraphics, CoreAnimation
+
 UIBezierPath, CAGradientLayer, CAShapeLayer, QuadCurve
 
 ## Screenshots
 
-<img src="https://github.com/phongngo0511/PieChartUIKit/SampleOutput.gif" width="250" height="500">
+<img src="https://github.com/phongngo511/PieChartUIKit/blob/main/SampleOutput.gif" width="250" height="550">
 
 ## Usage
 
@@ -24,7 +25,6 @@ let pieChartView = PieChartView(frame: CGRect(origin: CGPoint(x: 50, y: 150), si
 
 ```swift
 /// Add constraints to PieChartView
-
 pieChartView.translatesAutoresizingMaskIntoConstraints = false
 pieChartView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 pieChartView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -83,7 +83,7 @@ pieChartView.onTouchPie = {[weak self] sliceIndex in
 ```
 
 ## Example Project
-Checkout `SampleViewController.swift` file [Here](https://github.com/phongngo511/PieChartUIKit/blob/main/PieChartUIKit/SampleViewController.swift)
+Checkout [SampleViewController.swift](https://github.com/phongngo511/PieChartUIKit/blob/main/PieChartUIKit/SampleViewController.swift) file for the usage.
 
 ## License
 `PieChartUIKit` is available under the MIT License. See the `LICENSE` file for more info.
