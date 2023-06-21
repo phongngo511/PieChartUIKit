@@ -24,7 +24,6 @@
 		DAE28D8C2A427C9C00D7195F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAE28D8E2A427C9C00D7195F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAE28D982A4291F800D7195F /* PieChart */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PieChart; sourceTree = "<group>"; };
-		DAEE4CD02A42805E0025F0E3 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +62,6 @@
 				DAE28D802A427C9B00D7195F /* AppDelegate.swift */,
 				DAE28D822A427C9B00D7195F /* SceneDelegate.swift */,
 				DAE28D842A427C9B00D7195F /* SampleViewController.swift */,
-				DAEE4CD02A42805E0025F0E3 /* MyPlayground.playground */,
 				DAE28D892A427C9C00D7195F /* Assets.xcassets */,
 				DAE28D8B2A427C9C00D7195F /* LaunchScreen.storyboard */,
 				DAE28D8E2A427C9C00D7195F /* Info.plist */,
