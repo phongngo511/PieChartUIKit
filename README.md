@@ -1,6 +1,6 @@
 # PieChartUIKit
 
-PieChartUIKit is a simple solution writen purely in Swift allowing to draw colorful Pie Charts with several customizations options, such as gradient colors, spacing, hightlights, and more.
+PieChartUIKit is a simple solution writen purely in Swift allowing to draw colorful Pie Charts with several customization options, such as gradient colors, spacing, hightlights, corner radius and more.
 
 ## Frameworks
 
@@ -73,6 +73,18 @@ pieChartView.segments = [40, 30, 30]
 ### Segment Spacing
 ```swift
 pieChartView.offset = 5
+```
+
+### Inner corner radius
+```swift
+pieChartView.segmentInnerCornerRadius = 8
+
+```
+
+### Outer corner radius
+```swift
+pieChartView.segmentOuterCornerRadius = 6
+
 ```
 
 ### Pie Interactions

@@ -70,6 +70,8 @@ class SampleViewController: UIViewController {
         pieChartView.shouldShowPercentageLabel = true
         pieChartView.shouldHighlightPieOnTouch = true
         pieChartView.percentageLabelType = .segment
+        pieChartView.segmentInnerCornerRadius = 8
+        pieChartView.segmentOuterCornerRadius = 6
         pieChartView.pieFilledPercentages = [CGFloat(fillSlider1.value), CGFloat(fillSlider2.value), CGFloat(fillSlider3.value)]
         pieChartView.segments = [CGFloat(slider1.value), CGFloat(slider2.value), CGFloat(slider3.value)]
         pieChartView.pieGradientColors = [

@@ -47,7 +47,7 @@ public class PieChartView: UIView {
 
     /// Specify the space of each segment
     /// Percentage value is ranged within 0...1
-    public var pieFilledPercentages:[CGFloat] = [0, 0, 0] {
+    public var pieFilledPercentages: [CGFloat] = [0, 0, 0] {
         didSet { setNeedsLayout() }
     }
 
@@ -58,8 +58,18 @@ public class PieChartView: UIView {
     }
 
     /// Determines spacing between each segment, its value range is idealy from 0 to 20
-    public var offset:CGFloat = 5 {
+    public var offset: CGFloat = 5 {
         didSet { setNeedsLayout() }
+    }
+
+    /// Determines inner corner radius of pie segment
+    public var segmentInnerCornerRadius: CGFloat = 10 {
+        didSet { setNeedsDisplay() }
+    }
+
+    /// Determines outer corner radius of pie segment
+    public var segmentOuterCornerRadius: CGFloat = 5 {
+        didSet { setNeedsDisplay() }
     }
 
     private var labels: [UILabel] = []
@@ -90,7 +100,7 @@ public class PieChartView: UIView {
         for i in 0..<segments.count {
             let endAngle = startAngle - CGFloat(proportions[i]) / 100 * 360
 
-            let path = createPath(from: startAngle, to: endAngle, percentage: CGFloat(proportions[i]), pieFilledPercentage: pieFilledPercentages[i])
+            let path = createPath(from: startAngle, to: endAngle, innerCornerRadius: segmentInnerCornerRadius, outerCornerRadius: segmentOuterCornerRadius, percentage: CGFloat(proportions[i]), pieFilledPercentage: pieFilledPercentages[i])
             let shapeLayer = CAShapeLayer()
             shapeLayer.path = path.cgPath
             shapeLayers.append(shapeLayer)
@@ -159,7 +169,12 @@ public class PieChartView: UIView {
         shapeLayers.enumerated().forEach({$0.element.opacity = $0.offset == index ? 1: 0.3 })
     }
 
-    private func createPath(from startAngle: CGFloat, to endAngle: CGFloat, cornerRadius: CGFloat = 10, percentage: CGFloat, pieFilledPercentage: CGFloat) -> UIBezierPath {
+    private func createPath(from startAngle: CGFloat,
+                            to endAngle: CGFloat,
+                            innerCornerRadius: CGFloat,
+                            outerCornerRadius: CGFloat,
+                            percentage: CGFloat,
+                            pieFilledPercentage: CGFloat) -> UIBezierPath {
 
         var radius: CGFloat = min(bounds.width, bounds.height) / 2.0 - (2.0 * offset)
         radius *= min(1, max(0.3, pieFilledPercentage))
@@ -175,40 +190,39 @@ public class PieChartView: UIView {
 
         let circumference: CGFloat = CGFloat(2.0 * (Double.pi * Double(radius)))
         let arcLengthPerDegree = circumference / 360.0 //how many pixels long the outer arc is of the pie chart, per 1° of a pie segment
-        let pieSegmentOuterCornerRadiusInDegrees: CGFloat = 4.0 //for a given segment (and if it's >4° in size), use up 2 of its outer arc's degrees as rounded corners.
-        let pieSegmentOuterCornerRadius = arcLengthPerDegree * pieSegmentOuterCornerRadiusInDegrees
+        let pieSegmentOuterCornerRadius = arcLengthPerDegree * outerCornerRadius
 
         let path = UIBezierPath()
 
         //move to the centre of the pie chart, offset by the corner radius (so the corner of the segment can be rounded in a bit)
-        path.move(to: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * cornerRadius), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * cornerRadius)))
+        path.move(to: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * innerCornerRadius), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * innerCornerRadius)))
         //if the size of the pie segment isn't big enough to warrant rounded outer corners along its outer arc, don't round them off
-        if ((endAngle - startAngle).toDegrees() <= (pieSegmentOuterCornerRadiusInDegrees * 2.0)) {
+        if ((endAngle - startAngle).toDegrees() <= (outerCornerRadius * 2.0)) {
             //add line from centre of pie chart to 1st outer corner of segment
             path.addLine(to: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * radius), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * radius)))
             //add arc for segment's outer edge on pie chart
             path.addArc(withCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
             //move down to the centre of the pie chart, leaving room for rounded corner at the end
-            path.addLine(to: CGPoint(x: center.x + (cos(endAngle - CGFloat(360).toRadians()) * cornerRadius), y: center.y + (sin(endAngle - CGFloat(360).toRadians()) * cornerRadius)))
+            path.addLine(to: CGPoint(x: center.x + (cos(endAngle - CGFloat(360).toRadians()) * innerCornerRadius), y: center.y + (sin(endAngle - CGFloat(360).toRadians()) * innerCornerRadius)))
             //add final rounded corner in middle of pie chart
-            path.addQuadCurve(to: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * cornerRadius), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * cornerRadius)), controlPoint: center)
+            path.addQuadCurve(to: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * innerCornerRadius), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * innerCornerRadius)), controlPoint: center)
         } else if percentage == 100 {
             path.addArc(withCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         } else { //round the corners on the outer arc
             //add line from centre of pie chart to circumference of segment, minus the space needed for the rounded corner
             path.addLine(to: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * (radius - pieSegmentOuterCornerRadius)), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * (radius - pieSegmentOuterCornerRadius))))
             //add rounded corner onto start of outer arc
-            let firstRoundedCornerEndOnArc = CGPoint(x: center.x + (cos(startAngle + pieSegmentOuterCornerRadiusInDegrees.toRadians() - CGFloat(360).toRadians()) * radius), y: center.y + (sin(startAngle + pieSegmentOuterCornerRadiusInDegrees.toRadians() - CGFloat(360).toRadians()) * radius))
+            let firstRoundedCornerEndOnArc = CGPoint(x: center.x + (cos(startAngle + outerCornerRadius.toRadians() - CGFloat(360).toRadians()) * radius), y: center.y + (sin(startAngle + outerCornerRadius.toRadians() - CGFloat(360).toRadians()) * radius))
             path.addQuadCurve(to: firstRoundedCornerEndOnArc, controlPoint: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * radius), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * radius)))
             //add arc for segment's outer edge on pie chart
-            path.addArc(withCenter: center, radius: radius, startAngle: startAngle + pieSegmentOuterCornerRadiusInDegrees.toRadians(), endAngle: endAngle - pieSegmentOuterCornerRadiusInDegrees.toRadians(), clockwise: true)
+            path.addArc(withCenter: center, radius: radius, startAngle: startAngle + outerCornerRadius.toRadians(), endAngle: endAngle - outerCornerRadius.toRadians(), clockwise: true)
             //add rounded corner onto end of outer arc
             let secondRoundedCornerEndOnLine = CGPoint(x: center.x + (cos(endAngle - CGFloat(360).toRadians()) * (radius - pieSegmentOuterCornerRadius)), y: center.y + (sin(endAngle - CGFloat(360).toRadians()) * (radius - pieSegmentOuterCornerRadius)))
             path.addQuadCurve(to: secondRoundedCornerEndOnLine, controlPoint: CGPoint(x: center.x + (cos(endAngle - CGFloat(360).toRadians()) * radius), y: center.y + (sin(endAngle - CGFloat(360).toRadians()) * radius)))
             //add line back to centre point of pie chart, leaving room for rounded corner at the end
-            path.addLine(to: CGPoint(x: center.x + (cos(endAngle - CGFloat(360).toRadians()) * cornerRadius), y: center.y + (sin(endAngle - CGFloat(360).toRadians()) * cornerRadius)))
+            path.addLine(to: CGPoint(x: center.x + (cos(endAngle - CGFloat(360).toRadians()) * innerCornerRadius), y: center.y + (sin(endAngle - CGFloat(360).toRadians()) * innerCornerRadius)))
             //add final rounded corner in middle of pie chart
-            path.addQuadCurve(to: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * cornerRadius), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * cornerRadius)), controlPoint: center)
+            path.addQuadCurve(to: CGPoint(x: center.x + (cos(startAngle - CGFloat(360).toRadians()) * innerCornerRadius), y: center.y + (sin(startAngle - CGFloat(360).toRadians()) * innerCornerRadius)), controlPoint: center)
         }
         path.close()
         //spread the segments out around the pie chart centre
