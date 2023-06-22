@@ -11,8 +11,11 @@
 </p>
 
 <p align="center">
+    <a href="https://cocoapods.org/pods/PieChartUIKit">
+        <img src="https://img.shields.io/badge/pod-v1.0.0-blue.svg" alt="pod ready">
+    </a>
     <a href="https://github.com/phongngo511/PieChartUIKit">
-        <img src="https://img.shields.io/badge/SPM-✔-green.svg" alt="SMP ready"/>
+        <img src="https://img.shields.io/badge/SPM-✔-green.svg?style=flat)" alt="SMP ready"/>
     </a>
     <img src="https://img.shields.io/badge/Swift-5.0+-orange.svg" alt="Swift 5.0+"/>    
     <img src="https://img.shields.io/badge/iOS-14.0+-orange.svg" alt="iOS 14.0+"/>
