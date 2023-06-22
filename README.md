@@ -1,10 +1,25 @@
-# PieChartUIKit
+<p align="center">
+    <picture>
+      <img width="64" height="64" src="https://github.com/phongngo511/PieChartUIKit/blob/main/icon-piechart.png" alt="PieChartUIKit" title="PieChartUIKit">
+    </picture>
+</p>
 
-![iOS 14.0+](https://img.shields.io/badge/iOS-14.0%2B-blue.svg)
-![Swift 5.0+](https://img.shields.io/badge/Swift-5.0%2B-orange.svg)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/phongngo511/PieChartUIKit/blob/main/LICENSE?raw=true)
+<p align="center">
+    <p align="center"><strong> PieChartUIKit </strong></p>  
+    <p align="center">A simple solution to draw colorful Pie Charts</p> 
+    <p align="center">Supports customizations for gradient colors, spacing, hightlights, corner radius and more.</p>
+</p>
 
-PieChartUIKit is a simple solution writen purely in Swift allowing to draw colorful Pie Charts with several customization options, such as gradient colors, spacing, hightlights, corner radius and more.
+<p align="center">
+    <a href="https://github.com/phongngo511/PieChartUIKit">
+        <img src="https://img.shields.io/badge/SPM-✔-green.svg" alt="SMP ready"/>
+    </a>
+    <img src="https://img.shields.io/badge/Swift-5.0+-orange.svg" alt="Swift 5.0+"/>    
+    <img src="https://img.shields.io/badge/iOS-14.0+-orange.svg" alt="iOS 14.0+"/>
+    <a href="https://github.com/phongngo511/PieChartUIKit/blob/main/LICENSE?raw=true">
+        <img src="https://img.shields.io/badge/License-MIT-black.svg" alt="License"/>
+    </a>
+</p>
 
 ## Frameworks
 
