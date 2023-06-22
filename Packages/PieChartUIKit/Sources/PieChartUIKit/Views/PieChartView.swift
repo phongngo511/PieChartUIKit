@@ -1,8 +1,8 @@
 //
 //  PieChartView.swift
-//  PieChart
+//  PieChartUIKit
 //
-//  Created by Phu Phong Ngo on 21/6/2023.
+//  Created by Phu Phong Ngo on 22/6/2023.
 //
 
 import UIKit

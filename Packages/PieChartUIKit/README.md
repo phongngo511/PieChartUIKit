@@ -98,8 +98,5 @@ pieChartView.onTouchPie = {[weak self] sliceIndex in
 }
 ```
 
-## Example Project
-Checkout [SampleViewController.swift](https://github.com/phongngo511/PieChartUIKit/blob/main/PieChartUIKit/SampleViewController.swift) file for the usage.
-
 ## License
 `PieChartUIKit` is available under the MIT License. See the `LICENSE` file for more info.

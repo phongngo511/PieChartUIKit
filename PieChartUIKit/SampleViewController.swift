@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import PieChart
+import PieChartUIKit
 
 class SampleViewController: UIViewController {
 

@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA14CBB82A43DB2D009043C0 /* PieChartUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DA14CBB72A43DB2D009043C0 /* PieChartUIKit */; };
+		DA14CBBA2A43DECC009043C0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DA14CBB92A43DECC009043C0 /* README.md */; };
 		DAE28D812A427C9B00D7195F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE28D802A427C9B00D7195F /* AppDelegate.swift */; };
 		DAE28D832A427C9B00D7195F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE28D822A427C9B00D7195F /* SceneDelegate.swift */; };
 		DAE28D852A427C9B00D7195F /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE28D842A427C9B00D7195F /* SampleViewController.swift */; };
 		DAE28D8A2A427C9C00D7195F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE28D892A427C9C00D7195F /* Assets.xcassets */; };
 		DAE28D8D2A427C9C00D7195F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE28D8B2A427C9C00D7195F /* LaunchScreen.storyboard */; };
-		DAE28D9A2A42926A00D7195F /* PieChart in Frameworks */ = {isa = PBXBuildFile; productRef = DAE28D992A42926A00D7195F /* PieChart */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA14CBB62A43DA1B009043C0 /* PieChartUIKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PieChartUIKit; sourceTree = "<group>"; };
+		DA14CBB92A43DECC009043C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DAE28D7D2A427C9B00D7195F /* PieChartUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PieChartUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE28D802A427C9B00D7195F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE28D822A427C9B00D7195F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -23,7 +26,6 @@
 		DAE28D892A427C9C00D7195F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAE28D8C2A427C9C00D7195F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAE28D8E2A427C9C00D7195F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAE28D982A4291F800D7195F /* PieChart */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PieChart; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE28D9A2A42926A00D7195F /* PieChart in Frameworks */,
+				DA14CBB82A43DB2D009043C0 /* PieChartUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +43,7 @@
 		DAE28D742A427C9B00D7195F = {
 			isa = PBXGroup;
 			children = (
+				DA14CBB92A43DECC009043C0 /* README.md */,
 				DAE28D972A4291E000D7195F /* Packages */,
 				DAE28D7F2A427C9B00D7195F /* PieChartUIKit */,
 				DAE28D7E2A427C9B00D7195F /* Products */,
@@ -79,7 +82,7 @@
 		DAE28D972A4291E000D7195F /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				DAE28D982A4291F800D7195F /* PieChart */,
+				DA14CBB62A43DA1B009043C0 /* PieChartUIKit */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -101,7 +104,7 @@
 			);
 			name = PieChartUIKit;
 			packageProductDependencies = (
-				DAE28D992A42926A00D7195F /* PieChart */,
+				DA14CBB72A43DB2D009043C0 /* PieChartUIKit */,
 			);
 			productName = PieChartUIKit;
 			productReference = DAE28D7D2A427C9B00D7195F /* PieChartUIKit.app */;
@@ -145,6 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA14CBBA2A43DECC009043C0 /* README.md in Resources */,
 				DAE28D8D2A427C9C00D7195F /* LaunchScreen.storyboard in Resources */,
 				DAE28D8A2A427C9C00D7195F /* Assets.xcassets in Resources */,
 			);
@@ -302,8 +306,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PieChartUIKit/Info.plist;
@@ -319,6 +324,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.PieChartUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -333,8 +339,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PieChartUIKit/Info.plist;
@@ -350,6 +358,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.PieChartUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -383,9 +392,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DAE28D992A42926A00D7195F /* PieChart */ = {
+		DA14CBB72A43DB2D009043C0 /* PieChartUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = PieChart;
+			productName = PieChartUIKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
