@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "piechartuikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/phongngo511/PieChartUIKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d9b67166855d2acb16fb215c208bc0cfd776d8c6"
+      }
+    }
+  ],
+  "version" : 2
+}
