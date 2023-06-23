@@ -1,9 +1,8 @@
 <p align="center">
     <picture>
-      <img width="64" height="64" src="https://github.com/phongngo511/PieChartUIKit/blob/main/icon-piechart.png" alt="PieChartUIKit" title="PieChartUIKit">
+      <img width="128" height="128" src="https://github.com/phongngo511/PieChartUIKit/blob/main/icon-piechart.png" alt="PieChartUIKit" title="PieChartUIKit">
     </picture>
 </p>
-
 <p align="center">
     <p align="center"><strong> PieChartUIKit </strong></p>  
     <p align="center">A simple solution to draw colorful Pie Charts</p> 
