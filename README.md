@@ -39,10 +39,12 @@ pod 'PieChartUIKit', '~> 1.0.0'
 
 **Swift Package Manager**
 
-To install via [SPM](https://www.swift.org/package-manager/), use the below link to search for package: 
+To install via [SPM](https://www.swift.org/package-manager/), use the below: 
 
-```terminal
-https://github.com/phongngo511/PieChartUIKit.git
+```swift
+dependencies: [
+    .package(url: "https://github.com/phongngo511/PieChartUIKit.git", branch: "main"),
+]
 ```
 
 ## Frameworks
