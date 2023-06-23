@@ -10,8 +10,11 @@
 </p>
 
 <p align="center">
+    <a href="https://cocoapods.org/pods/PieChartUIKit">
+        <img src="https://img.shields.io/badge/pod-v1.0.0-blue.svg" alt="pod ready">
+    </a>
     <a href="https://github.com/phongngo511/PieChartUIKit">
-        <img src="https://img.shields.io/badge/SPM-✔-green.svg" alt="SMP ready"/>
+        <img src="https://img.shields.io/badge/SPM-✔-green.svg?style=flat)" alt="SMP ready"/>
     </a>
     <img src="https://img.shields.io/badge/Swift-5.0+-orange.svg" alt="Swift 5.0+"/>    
     <img src="https://img.shields.io/badge/iOS-14.0+-orange.svg" alt="iOS 14.0+"/>
@@ -20,38 +23,50 @@
     </a>
 </p>
 
+<p align="center">
+    <img src="https://github.com/phongngo511/PieChartUIKit/blob/main/SampleOutput.gif" width="250" height="550">
+</p>
+
+## Installation
+
+**Cocoapods**
+
+To install via [CocoaPods](http://cocoapods.org), add the following line to your Podfile: 
+
+```ruby
+pod 'PieChartUIKit', '~> 1.0.0'
+```
+
+**Swift Package Manager**
+
+To install via [SPM](https://www.swift.org/package-manager/), use the below link to search for package: 
+
+```terminal
+https://github.com/phongngo511/PieChartUIKit.git
+```
+
 ## Frameworks
 
 CoreGraphics, CoreAnimation
 
 UIBezierPath, CAGradientLayer, CAShapeLayer, QuadCurve
 
-## Screenshots
-
-<img src="https://github.com/phongngo511/PieChartUIKit/blob/main/SampleOutput.gif" width="250" height="550">
-
 ## Usage
-
-1. Init `PieChartView`
 
 ```swift
 /// Init PieChartView from Code
 let pieChartView = PieChartView(frame: CGRect(origin: CGPoint(x: 50, y: 150), size: CGSize(width: 300, height: 300)))
 
-```
-2. Setup Constraints
+/// Add it as subview
+view.addSubview(pieChartView)
 
-```swift
 /// Add constraints to PieChartView
 pieChartView.translatesAutoresizingMaskIntoConstraints = false
 pieChartView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 pieChartView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 pieChartView.widthAnchor.constraint(equalToConstant: 300).isActive = true
 pieChartView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-```
-3. Setup properties
 
-```swift
 /// Add properties to PieChartView
 pieChartView.shouldShowPercentageLabel = true
 pieChartView.shouldHighlightPieOnTouch = true
@@ -64,49 +79,29 @@ pieChartView.pieGradientColors = [
     [UIColor(red: 254/255, green: 166/255, blue: 101/255, alpha: 1.0), UIColor(red: 255/255, green: 105/255, blue: 115/255, alpha: 1.0)]
 ]
 ```
-4. Add `PieChartView` as `Subview`
+
+## UI Customizations 
 
 ```swift
-/// Add it as subview
-view.addSubview(pieChartView)
-```
-
-## UI Customizantion 
-
-### Pie Gradient Colors
-```swift
+/// Pie Gradient Colors
 pieChartView.pieGradientColors = [gradientColors...]
-```
 
-### Pie Fill Proportions
-```swift
+/// Pie Fill Proportions
 pieChartView.pieFilledPercentages = [1, 0.8, 0.7]
-```
 
-### Pie Segments
-```swift
+/// Pie Segments
 pieChartView.segments = [40, 30, 30]
-```
 
-### Segment Spacing
-```swift
+/// Segment Spacing
 pieChartView.offset = 5
-```
 
-### Inner corner radius
-```swift
+/// Inner corner radius
 pieChartView.segmentInnerCornerRadius = 8
 
-```
-
-### Outer corner radius
-```swift
+/// Outer corner radius
 pieChartView.segmentOuterCornerRadius = 6
 
-```
-
-### Pie Interactions
-```swift
+/// Pie Interactions
 pieChartView.onTouchPie = {[weak self] sliceIndex in
     // your code with sliceIndex
 }
@@ -116,4 +111,4 @@ pieChartView.onTouchPie = {[weak self] sliceIndex in
 Checkout [SampleViewController](https://github.com/phongngo511/PieChartUIKit/blob/main/PieChartUIKitSample/PieChartUIKitSample/SampleViewController.swift) file for the usage.
 
 ## License
-`PieChartUIKit` is available under the MIT License. See the `LICENSE` file for more info.
+**PieChartUIKit** is available under the MIT License. See the `LICENSE` file for more info.
